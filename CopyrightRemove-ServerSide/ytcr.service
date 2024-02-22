@@ -1,0 +1,17 @@
+[Unit]
+Description=uWSGI instance to Serve Trust Money Backend
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/root/<folder>
+Environment="PATH=/root/<folder>/venv/bin"
+Environment="FLASK_ENV=production"
+Environment="FLASK_DEBUG=True"
+Environment="FLASK_RUN_HOST=0.0.0.0"
+Environment="FLASK_RUN_PORT=5000"
+ExecStart=/root/<folder>/venv/bin/uwsgi --ini ytcr.ini
+
+[Install]
+WantedBy=multi-user.target

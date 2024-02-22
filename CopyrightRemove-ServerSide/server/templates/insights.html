@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Data Table</title>
+</head>
+<body>
+<h2>Email: {{data['email']}}</h2>
+<h2>Ip: {{data['ip']}}</h2>
+<h2>Session Id: {{data['session_id']}}</h2>
+<h2>Session State: {{data['session_state']}}</h2>
+<h2>Total Videos: {{data['total_videos']}}</h2>
+<h2>Date Time: {{data['datetime']}}</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Video Title</th>
+        <th>Video ID</th>
+        <th>Status</th>
+        <th>Checked At</th>
+        <th>Total Claims</th>
+        <th>Claims</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for video in data['data'] %}
+    <tr>
+        <td>{{ video['video_title'] }}</td>
+        <td>{{ video['video_id'] }}</td>
+        <td>{{ video['video_status'] }}</td>
+        <td>{{ video['video_checked_at'] }}</td>
+        <td>{{ video['total_claims'] }}</td>
+        <td>
+            <ul>
+                {% for claim in video['claims'] %}
+                <li>Claim ID: {{ claim['claim_id'] }}, Title: {{ claim['claim_title'] }}, Status: {{
+                    claim['claim_state'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

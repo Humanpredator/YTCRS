@@ -1,0 +1,7 @@
+greenlet==3.0.0
+playwright==1.39.0
+psycopg2==2.9.9
+pyee==11.0.1
+SQLAlchemy==2.0.23
+typing_extensions==4.8.0
+python-dotenv
