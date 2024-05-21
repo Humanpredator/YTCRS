@@ -6,6 +6,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         "playwright==1.40.0",
-        "requests==2.31.0"
+        "requests==2.32.0"
     ],
 )
